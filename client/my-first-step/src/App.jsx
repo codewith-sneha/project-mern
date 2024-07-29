@@ -12,14 +12,16 @@ import Admission from './pages/Admission';
 import Notices from './pages/Notices';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Login from './pages/Login';
-import React from 'react'
+
 import Footer from './pages/Footer';
+import Nav1 from './pages/Nav1'
+
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-      <Nav/>
+      <Nav1/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/About' element={<About/>} />
