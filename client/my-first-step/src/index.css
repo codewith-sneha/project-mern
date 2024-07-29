@@ -33,5 +33,5 @@ a:hover {
 .sticky-nav {
   position: sticky !important;
   top: 0px !important;
-  z-index: 1000 !important; /* Ensure it stays above other elements */
+  z-index: -1 !important; /* Ensure it stays above other elements */
 }

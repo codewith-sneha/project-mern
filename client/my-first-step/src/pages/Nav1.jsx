@@ -3,12 +3,15 @@ import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "f
 
 export default function Nav1() {
   return (
-    <Navbar fluid rounded className="bg-nav">
+    <Navbar fluid rounded className="bg-nav sticky-nav">
+      <div>
       <NavbarBrand as={Link} to="/">
-      <Link  to="/" className="flex items-center mr-5 space-x-2 rtl:space-x-reverse">
-            <img src="./src/assets/logo.jpeg" className="animate h-19 rounded-r-lg logo-img md:m-0" alt="Logo" />
+      <Link  to="/" className="flex items-center mr-5 rtl:space-x-reverse">
+            <img src="./src/assets/logo.jpeg" className="animate ml-0 m-0 h-19 rounded-r-lg logo-img md:m-0" alt="Logo" />
           </Link>
       </NavbarBrand>
+      </div>
+      <div>
       <NavbarToggle />
       <NavbarCollapse>
         <NavbarLink as={Link} to="/" active className="block py-2 px-3 md:py-0 md:px-1 md:p-0 text-black bg-blue-700 rounded md:bg-transparent md:text-white-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent md:hover:text-white btnnav"> 
@@ -33,6 +36,7 @@ export default function Nav1() {
           Login
         </NavbarLink>
       </NavbarCollapse>
+      </div>
     </Navbar>
   );
 }
