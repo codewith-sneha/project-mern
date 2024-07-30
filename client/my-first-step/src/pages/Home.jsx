@@ -57,7 +57,7 @@ function Home() {
             <Slider {...settings}>
               {classGroupData.map((v) => {
                 return (
-                  <div className='bg-white h-[420px] text-black rounded-xl scale'>
+                  <div className='bg-white h-[420px] text-black rounded-xl scale slider-card-shadow m-1'>
                     <div className='h-50 rounded-t-xl bg-indigo-500 flex justify-center items-center'>
                       <img src={v.img} alt="" className='h-44 w-44 rounded-full' />
                     </div>
@@ -81,7 +81,7 @@ function Home() {
         <div className='media flex w-[70vw] justify-center items-center m-auto my-2 gap-4 '>
           {faculty.map((v) => {
             return (
-              <div className='bg-lime-200 h-[470px] text-black rounded-xl m-2 scale'>
+              <div className='bg-lime-200 h-[470px] text-black rounded-xl m-2 scale shadow'>
                 <div className='h-60 rounded-t-xl bg-lime-300 flex justify-center items-center'>
                   <img src={v.img} alt="faculty" className='h-[200px] w-[200px] rounded-full' />
                 </div>

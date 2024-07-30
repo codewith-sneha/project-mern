@@ -119,6 +119,102 @@ export function Image_gallery() {
 <a href="./src/assets/photogallery/22.jpeg">
 <img alt="img1" src="./src/assets/photogallery/22.jpeg" />
 </a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/23.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/24.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/25.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/26.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/27.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/28.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/29.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/30.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/31.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/32.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/33.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/34.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/35.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/36.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/37.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/38.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/39.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/40.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/41.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/42.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/43.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/44.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/45.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/46.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/47.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/48.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/49.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/50.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/51.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/52.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/53.jpeg" />
+</a> 
+<a href="./src/assets/photogallery/22.jpeg">
+<img alt="img1" src="./src/assets/photogallery/54.jpeg" />
+</a> 
             </LightGallery>
         </div>
         </div>

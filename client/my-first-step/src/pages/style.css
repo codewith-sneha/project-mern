@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +9,12 @@
     font-weight: 500;
     font-style: normal;
 } */
-
+.lato{
+    font-family: "Lato", sans-serif;
+}
+.roboto{
+    font-family: "Roboto Condensed", sans-serif;
+}
 .btnnav{
     border-bottom:1px solid #52da52;
     color: white;
@@ -29,6 +35,7 @@
     
     width: auto;
     margin-right: 30px;
+    margin-left: 0px!important
     
 }
 .btnnav:hover{
@@ -104,4 +111,19 @@ scale: 1.02;
     li {
         padding: 0px !important
     }
+}
+.shadow{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.slider-card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.navbar-collapse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+.footer-shadow{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
