@@ -8,9 +8,8 @@ const parser = require('body-parser');
 require('./config/dbConn');
 const Admin = require('./config/Admin');
 const Student = require('./config/Student')
-const Post = require('./config/Post')
 const upload = require('./utils/multerConfig');
-
+const Post = require('./utils/Post_api')
 
 app.use(cors());
 app.use(parser.json());
@@ -144,7 +143,7 @@ app.get('/get_all_students',async(request,response) =>{
 })
 
 
-
+app.use('/api/',Post);
 
 
 
