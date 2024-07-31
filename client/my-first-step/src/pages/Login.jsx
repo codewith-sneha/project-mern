@@ -1,9 +1,10 @@
 import React from 'react'
+import View_activity from '../admin-pages/View_activity'
 
-function Login() {
+export default function Login() {
   return (
-    <div>Login</div>
+    <div>
+  
+    </div>
   )
 }
-
-export default Login

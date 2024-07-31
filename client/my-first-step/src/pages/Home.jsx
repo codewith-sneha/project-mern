@@ -48,7 +48,7 @@ function Home() {
   return (
     <div >
       <Home_slider />
-      <div className='min-h-[600px] w-full bg-yellow-100 p-6 flex items-center justify-center flex-col py-5'>
+      <div className='min-h-[600px] w-full bg-lime-100 p-6 flex items-center justify-center flex-col py-5'>
       <div className='text-3xl home_heading mb-4 capitalize mt-5'>
           <p>we offer following class groups</p>
         </div>
@@ -58,7 +58,7 @@ function Home() {
               {classGroupData.map((v) => {
                 return (
                   <div className='bg-white h-[420px] text-black rounded-xl scale slider-card-shadow m-1'>
-                    <div className='h-50 rounded-t-xl bg-indigo-500 flex justify-center items-center'>
+                    <div className='h-50 rounded-t-xl bg-[#9CDBA6] flex justify-center items-center'>
                       <img src={v.img} alt="" className='h-44 w-44 rounded-full' />
                     </div>
                     <div className='gap-4 flex-col flex justify-center items-center p-4'>
@@ -74,7 +74,7 @@ function Home() {
 
         </div>
       </div>
-      <div className='flex flex-col items-center justify-center bg-[#D6EFD8] min-h-[600px] py-3 mediaheight my-1 '>
+      <div className='flex flex-col items-center justify-center bg-[#DAFEBD] min-h-[600px] py-3 mediaheight my-1 '>
         <div className='text-3xl home_heading my-4 mt-6'>
           <p>Our Head Faculty</p>
         </div>
@@ -82,7 +82,7 @@ function Home() {
           {faculty.map((v) => {
             return (
               <div className='bg-lime-200 h-[470px] text-black rounded-xl m-2 scale shadow'>
-                <div className='h-60 rounded-t-xl bg-lime-300 flex justify-center items-center'>
+                <div className='h-60 rounded-t-xl bg-[#609C56] flex justify-center items-center'>
                   <img src={v.img} alt="faculty" className='h-[200px] w-[200px] rounded-full' />
                 </div>
                 <div className='gap-3 flex-col flex justify-center items-center p-4'>

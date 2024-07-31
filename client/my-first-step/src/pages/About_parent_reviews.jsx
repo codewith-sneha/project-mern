@@ -55,7 +55,7 @@ function About_parent_reviews() {
               {parentReview.map((v) => {
                 return (
                   <div className='bg-white h-[420px] text-black rounded-xl scale slider-card-shadow m-1'>
-                    <div className='h-50 rounded-t-xl bg-slate-400 flex justify-center items-center'>
+                    <div className='h-50 rounded-t-xl bg-[#7EDFB5] flex justify-center items-center'>
                       <img src={v.img} alt="" className='h-44 w-44 rounded-full' />
                     </div>
                     <div className='gap-3 flex-col flex justify-center items-center p-4'>

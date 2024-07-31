@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +12,9 @@
 } */
 .lato{
     font-family: "Lato", sans-serif;
+}
+.oswald{
+    font-family: "Oswald", sans-serif;
 }
 .roboto{
     font-family: "Roboto Condensed", sans-serif;
@@ -28,6 +32,7 @@
     background-color: #52da52;
     position: sticky;
     top: 0px;
+    
 
 }
 .logo-img{
@@ -127,3 +132,19 @@ scale: 1.02;
 .footer-shadow{
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
+.nav-link {
+    padding: 0.5rem 1rem;
+    color: black;
+    background-color: blue;
+    border-radius: 0.25rem;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: white;
+  }
+  
+  .nav-link.active {
+    color: white;
+    background-color: darkblue;
+  }

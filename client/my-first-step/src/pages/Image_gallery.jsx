@@ -1,4 +1,5 @@
 import LightGallery from 'lightgallery/react';
+
 import './style.css';
 // import styles
 import 'lightgallery/css/lightgallery.css';
@@ -215,19 +216,22 @@ export function Image_gallery() {
 <a href="./src/assets/photogallery/22.jpeg">
 <img alt="img1" src="./src/assets/photogallery/54.jpeg" />
 </a> 
+
+
             </LightGallery>
         </div>
         </div>
     );
 }
+
+
 // {images.map((v,index)=>{
 //     return(
 //         <div>
-//              <a href={v.src} key={index}>
+//              <a  href='./src/assets/logo.jpeg' data-src='./src/assets/logo.jpeg'  key={index}>
 //         <img alt={v.alt} src={v.src} />
 //     </a>
 //         </div>
 //     )
 //    })}  
-
 
