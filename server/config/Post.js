@@ -6,12 +6,11 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
     image: {
-        type: String,  // hii , i am adding this comment because we need to handle the image in the Db , this can be done using S3 bucket or cloud 
+        type: String,
         required: true
     },
     description: {
         type: String,
-        required: true
     },
     created_at: {
         type: Date,
