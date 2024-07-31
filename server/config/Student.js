@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const StudentSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
     email: {
         type: String,
         required: true,
@@ -21,19 +16,15 @@ const StudentSchema = new mongoose.Schema({
     },
     class: {
         type: String,
-        required: true
     },
     dob: {
         type: Date,
-        required: true
     },
     profile_image: {
         type: String,
-        required: true
     },
     progress: {
         type: String,
-        required: true
     },
     created_at: {
         type: Date,
