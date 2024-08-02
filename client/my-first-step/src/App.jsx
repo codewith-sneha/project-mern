@@ -4,7 +4,7 @@ import Add from './admin-pages/Add'
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Curriculum from './pages/Curriculum';
-// import Admission from './pages/Admission';
+import Admission from './pages/Admission';
 import Notices from './pages/Notices';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Login from './pages/Login';
@@ -13,7 +13,14 @@ import Footer from './pages/Footer';
 import Nav1 from './pages/Nav1';
 import Admin_dashboard from './admin-pages/Admin_dashboard';
 import Update_activity from './admin-pages/Update_activity';
-
+import Gallery from './admin-pages/Gallery';
+import Parent_review from './admin-pages/Parent_review';
+import View_notices from './admin-pages/View_notices';
+import Student from './admin-pages/Student';
+import Edit_review from './admin-pages/Edit_review';
+import Add_review from './admin-pages/Add_review';
+import Add_Gallary from './admin-pages/Add_Gallary';
+import Update_gallery from './admin-pages/Update_gallery';
 
 function App() {
  
@@ -22,10 +29,17 @@ function App() {
       <BrowserRouter>
       <Nav1/>
       <Routes>
- if(isAdmin){
+      
+      <Route path='/Update_gallery' element={<Update_gallery/>}></Route>
+<Route path='/Add_Gallary' element={<Add_Gallary/>} ></Route>
+      <Route path='/Add_review' element={<Add_review/>}></Route>
+      <Route path='/Edit_review' element={<Edit_review/>}></Route>
           <Route path='/Admin_dashboard' element={<Admin_dashboard/>}/>
-          
-          }
+          <Route path='/View_activity' element={<View_activity/>}/>
+          <Route path='/Gallery' element={<Gallery/>} />
+          <Route path='/Student' element={<Student/>} />
+          <Route path='/Parent_review' element={<Parent_review/>} />
+          <Route path='/View_notices' element={<View_notices/>} />
         <Route path='/' element={<Home/>}/>
         <Route path='/About' element={<About/>} />
         <Route path='/Curriculum' element={<Curriculum/>} />

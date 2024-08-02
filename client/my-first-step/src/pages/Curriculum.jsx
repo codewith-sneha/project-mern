@@ -70,7 +70,7 @@ function Curriculum() {
         </div>
       </div>
       <div>
-<Image_gallery/>
+{/* <Image_gallery/> */}
       </div>
 
     </div>
