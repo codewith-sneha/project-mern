@@ -36,13 +36,13 @@ app.post("/add_post", upload.single('image'), async (req, res) => {
   });
   
   //Get a single post by Id
-  app.get("/get_student/:id", async (req, res) => {
+  app.get("/get_post/:id", async (req, res) => {
     try {
       const post = await Post.findOne({ _id: req.params.id });
       if (!post) {
         return res.status(404).json({ message: "Post not found" });
       } else {
-        res.status(200).json();
+        res.status(200).json(post);
       }
     } catch (err) {
       res.status(400).json({ message: err.message });
