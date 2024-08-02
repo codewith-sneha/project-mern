@@ -58,7 +58,7 @@ let res = await axios.delete(`http://localhost:3387/api/delete_post/${id}`);
                     <td className='border flex gap-2 justify-center items-center border-gray-300 m-auto '>
                         <Link to={'/Update_activity/'+v._id} className='btn-view bg-yellow-200 p-2 rounded-lg text-black ' ><i class="fa-regular fa-pen-to-square"></i></Link>
                         {/* <Link to='/delete_activity' className='btn-view bg-red-600 p-2 rounded-lg text-black'><i className="fa-solid fa-trash"></i></Link> */}
-                        <button className='btn-view bg-red-600 p-2 rounded-lg text-black' ><i className="fa-solid fa-trash" onClick={handleDelete(v._id)}></i></button>
+                        {/* <button className='btn-view bg-red-600 p-2 rounded-lg text-black' ><i className="fa-solid fa-trash" onClick={handleDelete(v._id)}></i></button> */}
                     </td>
                 </tr >
                   </>  )

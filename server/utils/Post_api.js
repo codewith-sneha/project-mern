@@ -6,7 +6,7 @@ const upload = require('./multerConfig');
 //creating a new post
 app.post("/add_post", upload.single('image'), async (req, res) => {
     const { title, description} = req.body;
-    const image = req.file ? `/uploads/${req.file.filename}` : null;
+    const image = req.file ? `../uploads/${req.file.filename}` : null;
     try {
         console.log(image);
       const newPost = new Post({ title,image,description});
@@ -52,7 +52,7 @@ app.post("/add_post", upload.single('image'), async (req, res) => {
   //updating a post by Id
   app.put("/update_post/:id" , upload.single('image'), async (req, res) => {
     const { title, description} = req.body;
-    const image =  req.file ? `/uploads/${req.file.filename}` : null;
+    const image =  req.file ? `../uploads/${req.file.filename}` : null;
     try {
       const post = await Post.updateOne(
         { _id: req.params.id },
