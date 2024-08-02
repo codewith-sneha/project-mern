@@ -1,7 +1,7 @@
 const express = require('express');
 const Post = require('../config/Post');
 const app = express();
-const upload = require('./multerConfig');
+const upload = require('../multerConfig');
 
 //creating a new post
   app.post("/add_post", upload.single('image'), async (req, res) => {

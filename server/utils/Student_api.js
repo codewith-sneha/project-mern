@@ -1,7 +1,7 @@
 const express = require('express');
 const Student = require('../config/Student');
 const app = express();
-const upload = require('./multerConfig'); 
+const upload = require('../multerConfig'); 
 
 app.post('/add_student', upload.single('profile_image'), async (request, response) => {
     try {

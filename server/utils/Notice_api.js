@@ -1,7 +1,7 @@
 const express = require("express");
 const Notice = require('../config/Notice');
 const app = express();
-const upload = require("./multerConfig");
+const upload = require("../multerConfig");
 
 app.use('/uploads', express.static('/uploads'));
 

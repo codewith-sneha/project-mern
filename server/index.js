@@ -8,7 +8,7 @@ const parser = require('body-parser');
 const path = require('path');
 require('./config/dbConn');
 const Admin = require('./config/Admin');
-const upload = require('./utils/multerConfig');
+const upload = require('./multerConfig');
 const Post = require('./utils/Post_api')
 const Student = require('./utils/Student_api');
 const Notice = require('./utils/Notice_api');
