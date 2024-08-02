@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch and Display Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Post Details</h1>
+    <button id="fetchButton">Fetch Post</button>
+    <div id="postDetails" style="display: none;">
+        <h2 id="title"></h2>
+        <img id="image" src="" alt="Post Image">
+        <p id="description"></p>
+    </div>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', function() {
+            fetch('http://localhost:3387/api/get_post/66ad1865ebda9ded7fd88a99', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('title').innerText = data.title;
+                document.getElementById('image').src = data.image;
+                document.getElementById('description').innerText = data.description;
+                document.getElementById('postDetails').style.display = 'block';
+            })
+            .catch(error => console.error('Error fetching post:', error));
+        });
+    </script>
+</body>
+</html>

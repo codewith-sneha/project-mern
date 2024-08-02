@@ -4,21 +4,21 @@ const app = express();
 const upload = require('./multerConfig');
 
 //creating a new post
-app.post("/add_post", upload.single('image'), async (req, res) => {
-    const { title, description} = req.body;
-    const image = req.file ? `../uploads/${req.file.filename}` : null;
-    try {
-        console.log(image);
-      const newPost = new Post({ title,image,description});
-      await newPost.save();
- 
-      res.status(201).json();
-    
-    } catch (err) {
-      res.status(400).json({ message: err.message });
-    }
-  });
+  app.post("/add_post", upload.single('image'), async (req, res) => {
+      const { title, description} = req.body;
+      const image = req.file ? `uploads/${req.file.filename}` : null;
+      try {
+          console.log(image);
+        const newPost = new Post({ title,image,description});
+        await newPost.save();
   
+        res.status(201).json();
+      
+      } catch (err) {
+        res.status(400).json({ message: err.message });
+      }
+    });
+    
   //Get all posts
   app.get("/get_all_post", async (req, res) => {
     try {
@@ -38,7 +38,6 @@ app.post("/add_post", upload.single('image'), async (req, res) => {
   //Get a single post by Id
   app.get("/get_post/:id", async (req, res) => {
     try {
-      console.log("enterd the api")
       const post = await Post.findOne({ _id: req.params.id });
       if (!post) {
         return res.status(404).json({ message: "Post not found" });

@@ -5,46 +5,22 @@ const chalk = require('chalk');
 const express = require('express');
 const app = express();
 const parser = require('body-parser');
+const path = require('path');
 require('./config/dbConn');
 const Admin = require('./config/Admin');
 const upload = require('./utils/multerConfig');
 const Post = require('./utils/Post_api')
 const Student = require('./utils/Student_api');
 const Notice = require('./utils/Notice_api');
+const authRoutes = require('./routes/auth');
 
 app.use(cors());
 app.use(parser.json());
 
-app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+const uploadDir = path.join(__dirname, '../uploads');
+app.use('/uploads', express.static(uploadDir));
 
-    try {
-        const admin = await Admin.findOne({ email });
-        if (!admin) {
-            return res.status(401).json({ message: 'Invalid email or password' });
-        }
-        const isMatch = await admin.comparePassword(password);
-        if (!isMatch) {
-            return res.status(401).json({ message: 'Invalid email or password' });
-        }
-        const token = jwt.sign({ id: admin._id, email: admin.email }, JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({
-            token,
-            admin: {
-                id: admin._id,
-                name: admin.name,
-                email: admin.email,
-                created_at: admin.created_at
-            },
-            message: 'Login successful'
-        });
-    } catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message });
-    }
-});
-
-
-
+app.use('/api/auth', authRoutes);
 app.use('/api/',Post);
 
 app.use('/api/',Student);

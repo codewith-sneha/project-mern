@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const crypto = require('crypto');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_default_secret_key';
+const JWT_SECRET = crypto.randomBytes(32).toString('hex');
 
 const generateToken = (payload, secret = JWT_SECRET, expiresIn = '1h') => {
     return jwt.sign(payload, secret, { expiresIn });
 };
 
 module.exports = {
-    generateToken
+    generateToken,
+    JWT_SECRET
 };
