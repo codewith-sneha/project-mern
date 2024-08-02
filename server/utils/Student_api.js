@@ -41,15 +41,7 @@ app.get('/get_student/:id', async (request, response) => {
             })
         }
         else{
-            response.status(200).json({
-                student: {
-                    email : student.email,
-                    name : student.name,
-                    class : student.class,
-                    dob : student.dob,
-                    profile_image : student.profile_image
-                },
-            });
+            response.status(200).json(student);
         }
 
     } catch (error) {
