@@ -21,6 +21,7 @@ import Edit_review from './admin-pages/Edit_review';
 import Add_review from './admin-pages/Add_review';
 import Add_Gallary from './admin-pages/Add_Gallary';
 import Update_gallery from './admin-pages/Update_gallery';
+import Error_page from './pages/Error_page';
 
 function App() {
  
@@ -29,7 +30,8 @@ function App() {
       <BrowserRouter>
       <Nav1/>
       <Routes>
-      
+      {/* <Route path='/*' element={<Error_page/>}></Route> */}
+
       <Route path='/Update_gallery' element={<Update_gallery/>}></Route>
 <Route path='/Add_Gallary' element={<Add_Gallary/>} ></Route>
       <Route path='/Add_review' element={<Add_review/>}></Route>
@@ -37,6 +39,7 @@ function App() {
           <Route path='/Admin_dashboard' element={<Admin_dashboard/>}/>
           <Route path='/View_activity' element={<View_activity/>}/>
           <Route path='/Gallery' element={<Gallery/>} />
+          
           <Route path='/Student' element={<Student/>} />
           <Route path='/Parent_review' element={<Parent_review/>} />
           <Route path='/View_notices' element={<View_notices/>} />
@@ -48,7 +51,7 @@ function App() {
         <Route path='/Contact' element={<Contact/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Add' element={<Add/>}></Route>
-        <Route path='/Update_activity' element={<Update_activity/>}/>
+        <Route path='/Update_activity/:id' element={<Update_activity/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

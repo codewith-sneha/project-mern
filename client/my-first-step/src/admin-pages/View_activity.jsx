@@ -21,6 +21,12 @@ function View_activity() {
 getpost();
       },[])
 
+      const handleDelete=async(id)=>{
+        console.log("delete");
+let res = await axios.delete(`http://localhost:3387/api/delete_post/${id}`);
+
+      }
+
   return (
     <div>
           <Link to='/Admin_dashboard' className='text-black bg-gray-200 py-2 px-4 rounded-lg mb-4 inline-block m-1'>
@@ -43,15 +49,16 @@ getpost();
                     return(
                         <>
                 <tr className='p-1 border-b border-gray-300' key={i}>
-                    
+                    {console.log(v._id)}
                     <td className='border border-gray-300'>{i+1}</td>
                     <td className='border border-gray-300'>{v.title}</td>
                     {console.log(v.image)}
                     <td className='border border-gray-300'><img src={v.image} alt={i} className='h-[100px] w-full' /></td>
                     <td className='border border-gray-300'>{v.description}</td>
                     <td className='border flex gap-2 justify-center items-center border-gray-300 m-auto '>
-                        <Link to={'/Update_activity'} className='btn-view bg-yellow-200 p-2 rounded-lg text-black ' ><i class="fa-regular fa-pen-to-square"></i></Link>
-                        <Link to='/delete_activity' className='btn-view bg-red-600 p-2 rounded-lg text-black'><i className="fa-solid fa-trash"></i></Link>
+                        <Link to={'/Update_activity/'+v._id} className='btn-view bg-yellow-200 p-2 rounded-lg text-black ' ><i class="fa-regular fa-pen-to-square"></i></Link>
+                        {/* <Link to='/delete_activity' className='btn-view bg-red-600 p-2 rounded-lg text-black'><i className="fa-solid fa-trash"></i></Link> */}
+                        <button className='btn-view bg-red-600 p-2 rounded-lg text-black' ><i className="fa-solid fa-trash" onClick={handleDelete(v._id)}></i></button>
                     </td>
                 </tr >
                   </>  )
