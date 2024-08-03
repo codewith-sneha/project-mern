@@ -13,6 +13,7 @@ const Notice = require('./utils/Notice_api');
 const authRoutes = require('./routes/auth');
 const review = require('./utils/reviews_api');
 const authMiddleware = require('./middleware/authMiddleware');
+const Image = require('./utils/Image_Gallery_api');
 
 app.use(cors());
 app.use(parser.json());
@@ -26,6 +27,7 @@ app.use('/api/', authMiddleware, Post);
 app.use('/api/', authMiddleware, Student);
 app.use('/api/', authMiddleware, review);
 app.use('/api/', authMiddleware, Notice);
+app.use('/api/', authMiddleware, Image);
 
 app.listen(port, (err) => {
     if (err) {
