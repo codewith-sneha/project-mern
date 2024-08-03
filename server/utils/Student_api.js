@@ -33,8 +33,8 @@ app.post('/add_student', upload.single('profile_image'), async (request, respons
 app.get('/get_student/:id', async (request, response) => {
     try {
         console.log("the api is called");
-        const {student_id} = request.params.id;
-        const student = await Student.findOne({student_id});
+        const student_id = request.params.id;
+        const student = await Student.findOne({_id : student_id});
         if(!student){
             response.status(404).json({
                 message : 'user does not exist'
