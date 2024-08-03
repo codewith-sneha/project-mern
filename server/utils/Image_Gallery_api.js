@@ -8,14 +8,16 @@ app.use('/uploads', express.static('uploads'));
 //Add a new image 
 app.post('/add_image', upload.single('image'),async(req,res)=>{
     try{
-        const imagePath = `/uploads/${req.file.filename}`;
-        const newImage = new Image({ imagePath});
+        const imagePath =req.file ? `uploads/${req.file.filename}` : null;
+        const newImage = new Image({image : imagePath});
+        console.log(imagePath)
         await newImage.save();
         res.status(201).json({
             id : newImage._id,
             message: 'Image added successfully'
         });
     } catch(err){
+        console.log(err)
         res.status(400).json({message: err.message});
     }
 });
@@ -48,10 +50,7 @@ app.get('/get_image/:id', async(req,res)=>{
             return res.status(404).json({message: 'Image not found'});
         }
         else{
-            res.status(200).json({
-                id: image._id,
-                imagePath: image.imagePath 
-            })
+            res.status(200).json(image)
         }
     } catch(err){
         res.status(400).json({
@@ -64,10 +63,7 @@ app.get('/get_image/:id', async(req,res)=>{
 app.get('/get_all_images', async(req,res)=>{
     try{
         const images = await Image.find();
-        res.status(200).json(images.map( image => ({
-            id: image._id,
-            imagePath: image.imagePath
-        })));
+        res.status(200).json(images);
     } catch(err){
         res.status(400).json({message: err.message});
     }

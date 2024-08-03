@@ -6,7 +6,7 @@ const upload = require('../multerConfig');
 app.post('/add_student', upload.single('profile_image'), async (request, response) => {
     try {
         const {email, password, name, class: studentClass, dob, progress } = request.body;
-        const profile_image = request.file ? `../uploads/${request.file.filename}` : null;
+        const profile_image =req.file ? `uploads/${req.file.filename}` : null;
         const newStudent = new Student({
             email,
             password,
