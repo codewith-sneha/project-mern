@@ -22,7 +22,6 @@ app.post('/add_student', upload.single('profile_image'), async (request, respons
             student: newStudent
         });
     } catch (error) {
-        console.error('Error creating student:', error);
         response.status(500).json({
             message: 'Error creating student',
             error
@@ -32,7 +31,6 @@ app.post('/add_student', upload.single('profile_image'), async (request, respons
 
 app.get('/get_student/:id', async (request, response) => {
     try {
-        console.log("the api is called");
         const student_id = request.params.id;
         const student = await Student.findOne({_id : student_id});
         if(!student){

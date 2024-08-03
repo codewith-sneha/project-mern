@@ -9,19 +9,15 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
-        const student = await Student.findOne({ email });
+        const student = await Student.findOne({ email : email ,password : password});
         if (!student) {
             return res.status(400).json({ error: 'Invalid credentials' });
         }
-        const isMatch = await bcrypt.compare(password, student.password);
-        if (!isMatch) {
-            return res.status(400).json({ error: 'Invalid credentials' });
-        }
-
         const token = generateToken({ id: student._id });
 
         res.json({ token });
     } catch (err) {
+        console.log(err)
         res.status(500).json({ error: 'Server error' });
     }
 });
