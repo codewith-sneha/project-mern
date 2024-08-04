@@ -51,23 +51,33 @@ app.get('/get_student/:id', async (request, response) => {
     }
 });
 
+app.put('/update_student/:id', upload.single('profile_image'), async (req, res) => {
+    try {
+        const studentId = req.params.id;
+        const updateData = req.body;
 
-app.put('/update_student/:id',async(request,response) =>{
-    try{
+        if (req.file) {
+            // If an image file is uploaded, add the file path to the update data
+            updateData.profile_image = `uploads/${req.file.filename}`;
+        }
+
         let student = await Student.updateOne(
-            {_id : request.params.id},
-            {$set : request.body}
+            { _id: studentId },
+            { $set: updateData }
         );
-        response.send(student);
-    }catch (error) {
+
+        res.status(200).json({
+            message: 'Student updated successfully',
+            student
+        });
+    } catch (error) {
         console.error('Error updating student:', error);
-        response.status(500).json({
+        res.status(500).json({
             message: 'Error updating student',
             error
         });
     }
-    
-})
+});
 
 app.delete('/delete_student/:id', async (request, response) => {
     try {

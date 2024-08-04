@@ -49,7 +49,7 @@ app.post("/add_review", upload.single('image'), async (req, res) => {
   //updating a review by Id
   app.put("/update_review/:id" , upload.single('image'), async (req, res) => {
     const { title, description} = req.body;
-    const image =  req.file ? `../uploads/${req.file.filename}` : null;
+    const image =  req.file ? `uploads/${req.file.filename}` : null;
     try {
       const review = await Review.updateOne(
         { _id: req.params.id },
