@@ -8,17 +8,14 @@ const upload = require('../multerConfig');
       const { title, description} = req.body;
       const image = req.file ? `uploads/${req.file.filename}` : null;
       try {
-          console.log(image);
         const newPost = new Post({ title,image,description});
         await newPost.save();
-  
         res.status(201).json();
       
       } catch (err) {
         res.status(400).json({ message: err.message });
       }
     });
-    
   //Get all posts
   app.get("/get_all_post", async (req, res) => {
     try {

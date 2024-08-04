@@ -14,6 +14,8 @@ const authRoutes = require('./routes/auth');
 const review = require('./utils/reviews_api');
 //const authMiddleware = require('./middleware/authMiddleware');
 const Image = require('./utils/Image_Gallery_api');
+const authMiddleware = require('./middleware/authMiddleware');
+const isAdmin = require('./middleware/isAdmin');
 
 app.use(cors());
 app.use(parser.json());
