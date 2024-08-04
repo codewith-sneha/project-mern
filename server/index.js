@@ -12,7 +12,7 @@ const Student = require('./utils/Student_api');
 const Notice = require('./utils/Notice_api');
 const authRoutes = require('./routes/auth');
 const review = require('./utils/reviews_api');
-const authMiddleware = require('./middleware/authMiddleware');
+//const authMiddleware = require('./middleware/authMiddleware');
 const Image = require('./utils/Image_Gallery_api');
 
 app.use(cors());
@@ -23,11 +23,11 @@ app.use('/uploads', express.static(uploadDir));
 
 app.use('/api/auth', authRoutes);
 
-app.use('/api/', authMiddleware, Post);
-app.use('/api/', authMiddleware, Student);
-app.use('/api/', authMiddleware, review);
-app.use('/api/', authMiddleware, Notice);
-app.use('/api/', authMiddleware, Image);
+app.use('/api/', Post);
+app.use('/api/', Student);
+app.use('/api/', review);
+app.use('/api/', Notice);
+app.use('/api/', Image);
 
 app.listen(port, (err) => {
     if (err) {
