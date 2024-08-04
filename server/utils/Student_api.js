@@ -2,6 +2,7 @@ const express = require('express');
 const Student = require('../config/Student');
 const app = express();
 const upload = require('../multerConfig'); 
+const  deleteFile  = require('./deleteFile');
 
 app.post('/add_student', upload.single('profile_image'), async (request, response) => {
     try {
@@ -50,25 +51,27 @@ app.get('/get_student/:id', async (request, response) => {
         });
     }
 });
-
 app.put('/update_student/:id', upload.single('profile_image'), async (req, res) => {
     try {
         const studentId = req.params.id;
         const updateData = req.body;
 
+        const existingStudent = await Student.findById(studentId);
+        if (!existingStudent) {
+            return res.status(404).json({ message: 'Student not found' });
+        }
+
         if (req.file) {
-            // If an image file is uploaded, add the file path to the update data
+            if (existingStudent.profile_image) {
+                deleteFile(existingStudent.profile_image);
+            }
             updateData.profile_image = `uploads/${req.file.filename}`;
         }
 
-        let student = await Student.updateOne(
-            { _id: studentId },
-            { $set: updateData }
-        );
-
+        const updatedStudent = await Student.findByIdAndUpdate(studentId, updateData, { new: true });
         res.status(200).json({
             message: 'Student updated successfully',
-            student
+            student: updatedStudent
         });
     } catch (error) {
         console.error('Error updating student:', error);
@@ -78,12 +81,20 @@ app.put('/update_student/:id', upload.single('profile_image'), async (req, res) 
         });
     }
 });
-
 app.delete('/delete_student/:id', async (request, response) => {
     try {
         const studentId = request.params.id;
-        const deletedStudent = await Student.findByIdAndDelete(studentId);
-        if (!deletedStudent) return response.status(404).json({ message: 'Student not found' });
+        const student = await Student.findById(studentId);
+        if (!student) return response.status(404).json({ message: 'Student not found' });
+
+        const profileImagePath = student.profile_image;
+
+        await Student.findByIdAndDelete(studentId);
+
+        if (profileImagePath) {
+            deleteFile(profileImagePath);
+        }
+
         response.status(204).send();
     } catch (error) {
         response.status(500).json({ error: error.message });

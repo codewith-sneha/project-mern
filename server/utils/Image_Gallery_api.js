@@ -8,7 +8,7 @@ app.use('/uploads', express.static('uploads'));
 //Add a new image 
 app.post('/add_image', upload.single('image'),async(req,res)=>{
     try{
-        const imagePath =req.file ? `uploads/${req.file.filename}` : null;
+        const imagePath = req.file ? `uploads/${req.file.filename}` : null;
         const newImage = new Image({image : imagePath});
         console.log(imagePath)
         await newImage.save();

@@ -12,7 +12,6 @@ const Student = require('./utils/Student_api');
 const Notice = require('./utils/Notice_api');
 const authRoutes = require('./routes/auth');
 const review = require('./utils/reviews_api');
-//const authMiddleware = require('./middleware/authMiddleware');
 const Image = require('./utils/Image_Gallery_api');
 const authMiddleware = require('./middleware/authMiddleware');
 const isAdmin = require('./middleware/isAdmin');
