@@ -12,7 +12,6 @@ app.post("/add_notice", upload.array("attatchments", 10), async (req, res) => {
     const filepaths = req.files.map((file) => file.path);
 
     let notice = new Notice({
-      title: req.body.title,
       description: req.body.description,
       attatchments: filepaths,
       date: req.body.date,
@@ -40,7 +39,6 @@ app.put("/update_notice/:id",upload.array("attachments", 10), async (req, res) =
       const notice = await Notice.findByIdAndUpdate(
         req.params.id,
         {
-          title: req.body.title,
           description: req.body.description,
           attatchments: filepaths,
           date: req.body.date,
