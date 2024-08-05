@@ -10,7 +10,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Login from './pages/Login';
 import View_activity from './admin-pages/View_activity';
 import Footer from './pages/Footer';
-import Nav1 from './pages/Nav1';
+// import Nav1 from './pages/Nav1';
 import Admin_dashboard from './admin-pages/Admin_dashboard';
 import Update_activity from './admin-pages/Update_activity';
 import Gallery from './admin-pages/Gallery';
@@ -35,7 +35,8 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Nav1/>
+      {/* <Nav1/> */}
+      <Navbar/>
       <Routes>
       {/* <Route path='/*' element={<Error_page/>}></Route> */}
       <Route path='/Student_dashboard' element={<Student_dashboard/>}></Route>

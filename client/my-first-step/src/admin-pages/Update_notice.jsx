@@ -14,6 +14,10 @@ export default function Update_notice() {
 let res =await axios.get(`http://localhost:3387/api/get_notice/${id}`);
 let dataa=res.data;
 setdata(dataa);
+setupdatedata({
+  description:dataa.description,
+  attatchment:null
+})
   }
   
   useEffect(()=>{
@@ -75,7 +79,7 @@ setdata(dataa);
         </label>
         <input
           type='text'
-          placeholder={data.description}
+          value={updatedata.description}
           onChange={inputhandle}
           name='description'
           id='desc'

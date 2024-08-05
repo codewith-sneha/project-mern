@@ -7,9 +7,9 @@ import { useState } from "react";
 export default function Nav1() {
 
   const [isMenuOpen ,setIsMenuOpen]=useState(false)
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
-  };
+  // const toggleMenu = () => {
+  //   setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
+  // };
   
   const id=localStorage.getItem('id');
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ export default function Nav1() {
   // const isAdmin = true; //using true bcoz localstorage return string so to convert it 
   const [isAdmin, setIsAdmin] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
-  // localStorage.setItem('isStudent',true);
+  // localStorage.setItem('isAdmin',true);
   
   const handleLogout=()=>{
     localStorage.removeItem('isStudent');
@@ -45,7 +45,8 @@ navigate('/');
       </NavbarBrand>
       
       <div className="flex items-center  flex-grow ">
-      <NavbarToggle onClick={toggleMenu}/>
+      <NavbarToggle />
+      {/* onClick={toggleMenu} */}
       <NavbarCollapse className="flex flex-col item-center md:flex-row justify-between m-auto  mr-2 ${isMenuOpen ? 'block' : 'hidden'}">
         <NavbarLink as={Link} to="/" active className="block py-2 mx-0 px-3 md:py-0 md:px-1 md:p-0 text-black bg-blue-700 rounded md:bg-transparent md:text-white-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent md:hover:text-white btnnav  "> 
           Home

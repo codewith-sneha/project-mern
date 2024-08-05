@@ -16,6 +16,11 @@ export default function Edit_review() {
     let res = await axios.get(`http://localhost:3387/api/get_review/${id}`);
     let Data = res.data;
     setData(Data);
+    setUpdateData({
+      title:Data.title,
+      description:Data.description,
+      image:null
+    })
   };
 
   const handleInput = (e) => {
@@ -78,7 +83,7 @@ export default function Edit_review() {
               autoComplete="off"
               id="name"
               name="title"
-              placeholder={data.title}
+              value={updateData.title}
               className="w-full p-2 border rounded-lg"
               onChange={handleInput}
             />
@@ -90,7 +95,7 @@ export default function Edit_review() {
             <textarea
               name="description"
               id="desc"
-              placeholder={data.description}
+              value={updateData.description}
               rows="4"
               cols="30"
               autoComplete="off"

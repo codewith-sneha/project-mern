@@ -16,7 +16,7 @@ export default function View_galleryImage() {
   return (
     <div className="flex justify-center items-center px-4 bg-slate-200">
         {console.log(data.image)}
-<img src={`http://localhost:3387/${data.image}`} alt="image" className="object-contain w-full h-[600px] border-2 border-black rounded-lg shadow-lg" />
+<img src={`http://localhost:3387/${data.image}`} alt="image" className="object-contain w-full h-[600px] rounded-lg shadow-lg" />
     </div>
   )
 }
