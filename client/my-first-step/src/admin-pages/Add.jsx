@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export default function Add() {
   const user={
@@ -9,6 +10,7 @@ export default function Add() {
     desc:""
   }
   const [data,setdata]=useState(user);
+  const nevigate=useNavigate();
 
   const inputhandle=(e)=>{
 const {name,value,files}=e.target;
@@ -29,6 +31,7 @@ setdata({...data,[name]:value});
     if (data.img) {
       formData.append('image', data.img);
     }
+    console.log("imageactivity :",data.img)
 
     try {
       const response = await axios.post("http://localhost:3387/api/add_post", formData, {
@@ -38,13 +41,17 @@ setdata({...data,[name]:value});
       });
       
       console.log(response.data);
+      // toast.success("Data added sucessfully",{position:"top-right"});
+      alert("Data added sucessfully")
+      nevigate("/View_activity");
     } catch (error) {
       
       console.log(error);
     }
   };
-  
+  {console.log(data)}
   return (
+  
     <div className='w-full m-auto bg-green-100  min-h-[400px] p-4 '>
         <Link to='/View_activity' className='bg-gray-200 py-2 p-3 rounded-lg text-black'>Back</Link>
         <div className='flex justify-center items-center gap-20 m-3 mb-5 text-2xl capitalize '>

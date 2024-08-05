@@ -1,42 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 export default function Add_Gallary() {
   const user={
-    name:"",
     img:null,
-    desc:""
   }
   const [data,setdata]=useState(user);
-
+const nevigate=useNavigate();
   const inputhandle=(e)=>{
 const {name,value,files}=e.target;
 console.log(name,value);
 if(name=='img'){
   setdata({...data,[name]:files[0]});
 }
-else{
-setdata({...data,[name]:value});
   }
-}
  
   const handlesubmit=async(e)=>{
     e.preventDefault();
     const formData = new FormData();
-    formData.append('title', data.title);
-    formData.append('description', data.description);
     if (data.img) {
-      formData.append('img', data.img);
+      formData.append('image', data.img);
     }
 
     try {
-      const response = await axios.post("http://localhost:3387/api/add_post", formData, {
+      const response = await axios.post("http://localhost:3387/api/add_image", formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
       console.log(response.data);
+nevigate('/Gallery');
     } catch (error) {
       
       console.log(error);

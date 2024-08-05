@@ -31,15 +31,15 @@ function View_activity() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto px-4 overflow-x-hidden">
       <Link to='/Admin_dashboard' className='text-black bg-gray-200 py-2 px-4 rounded-lg mb-4 inline-block m-1'>
         Back
       </Link>
-      <div className='flex flex-col m-auto gap-1'>
+      <div className='flex flex-col m-auto gap-1 overflow-x-auto'>
         <Link to='/Add' className='p-3 mt-2 bg-green-600 text-black min-w-[70px] m-auto text-center rounded-md'>
           Add element <i className="fa-solid fa-plus"></i>
         </Link>
-        <table className='w-[70vw] m-auto table-auto border-collapse border border-gray-300 table-view p-2 my-3 bg-gray-100'>
+        <table className='w-[60vw] m-auto table-auto border-collapse border border-gray-300 table-view p-2 my-3 bg-gray-100'>
           <thead>
             <tr className='p-2 border-b border-gray-300 bg-gray-400'>
               <th className='border capitalize p-2 border-gray-300'>s.no</th>
@@ -55,11 +55,13 @@ function View_activity() {
                 <td className='border border-gray-300'>{i + 1}</td>
                 <td className='border border-gray-300'>{v.title}</td>
                 <td className='border border-gray-300'>
+                  <div className='h-[120px] w-[120px] overflow-hidden flex justify-center items-center text-center'>
                   <img
                     src={`http://localhost:3387/${v.image}`}
                     alt={v.title}
-                    className='h-[100px] w-full'
+                    className='object-cover h-full w-full'
                   />
+                  </div>
                 </td>
                 <td className='border border-gray-300'>{v.description}</td>
                 <td className='border flex gap-2 justify-center items-center border-gray-300 m-auto'>

@@ -99,9 +99,7 @@ scale: 1.02;
     column-gap: 10px;
 }
 .gallery img{
-    max-width: 100%;
-    display: block;
-    padding: 5px 0;
+   
     border-radius: 20px;
     transition: transform 0.2s;
 }
@@ -151,4 +149,13 @@ scale: 1.02;
   .nav-link.active {
     color: white;
     background-color: darkblue;
+  }
+  @media only screen and (max-width: 890px) {
+    .media-scroll{
+overflow-x: scroll;
+width: 100vh;
+    }
+}
+  .student-image{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }

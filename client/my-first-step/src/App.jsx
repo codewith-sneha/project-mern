@@ -22,6 +22,13 @@ import Add_review from './admin-pages/Add_review';
 import Add_Gallary from './admin-pages/Add_Gallary';
 import Update_gallery from './admin-pages/Update_gallery';
 import Error_page from './pages/Error_page';
+import Add_student from './admin-pages/Add_student';
+import Update_student from './admin-pages/Update_student';
+import View_galleryImage from './pages/View_galleryImage';
+import Navbar from './pages/Navbar';
+import Add_notice from './admin-pages/Add_notice';
+import Update_notice from './admin-pages/Update_notice';
+import Student_dashboard from './admin-pages/Student_dashboard';
 
 function App() {
  
@@ -31,15 +38,19 @@ function App() {
       <Nav1/>
       <Routes>
       {/* <Route path='/*' element={<Error_page/>}></Route> */}
-
+      <Route path='/Student_dashboard' element={<Student_dashboard/>}></Route>
+<Route path='/Update_student/:id' element={<Update_student/>}></Route>
+<Route path='/Update_notice/:id' element={<Update_notice/>}></Route>
+<Route path='/Add_notice' element={<Add_notice/>} ></Route>
+<Route path='/Add_student' element={<Add_student/>}></Route>
       <Route path='/Update_gallery' element={<Update_gallery/>}></Route>
 <Route path='/Add_Gallary' element={<Add_Gallary/>} ></Route>
       <Route path='/Add_review' element={<Add_review/>}></Route>
-      <Route path='/Edit_review' element={<Edit_review/>}></Route>
+      <Route path='/Edit_review/:id' element={<Edit_review/>}></Route>
           <Route path='/Admin_dashboard' element={<Admin_dashboard/>}/>
           <Route path='/View_activity' element={<View_activity/>}/>
           <Route path='/Gallery' element={<Gallery/>} />
-          
+          <Route path='/View_galleryImage/:id' element={<View_galleryImage/>}></Route>
           <Route path='/Student' element={<Student/>} />
           <Route path='/Parent_review' element={<Parent_review/>} />
           <Route path='/View_notices' element={<View_notices/>} />

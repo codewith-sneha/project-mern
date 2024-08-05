@@ -1,24 +1,15 @@
 import LightGallery from 'lightgallery/react';
-
+import axios from 'axios';
+import { useState ,useEffect } from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 // import styles
-import './../../node_modules/lightgallery/css/lightgallery.css';
 
-import './../../node_modules/lightgallery/css/lg-zoom.css';
-import './../../node_modules/lightgallery/css/lg-thumbnail.css';
-import './../../node_modules/lightgallery/css/lg-rotate.css';
-import './../../node_modules/lightgallery/css/lg-fullscreen.css';
-
-// import plugins if you need
-import lgThumbnail from './../../node_modules/lightgallery/plugins/thumbnail';
-import lgZoom from 'lightgallery/plugins/zoom';
-import lgRotate from 'lightgallery/plugins/rotate';
-import lgFullscreen from 'lightgallery/plugins/fullscreen';
 export function Image_gallery() {
     const onInit = () => {
         console.log('lightGallery has been initialized');
     };
-    // const images=[
+    // const data=[
     //     {src:"./src/assets/photogallery/1.jpeg" ,alt:1},
     //     {src:"./src/assets/photogallery/2.jpeg" ,alt:2},
     //     {src:"./src/assets/photogallery/3.jpeg" ,alt:3},
@@ -43,29 +34,69 @@ export function Image_gallery() {
     //     {src:"./src/assets/photogallery/22.jpeg",alt:22},
     //     {src:"./src/assets/photogallery/23.jpeg",alt:23}
     // ]
-    const data = [
-        {
-            img1: 'https://reqres.in/img/faces/11-image.jpg',
-            img2: 'https://reqres.in/img/faces/11-image.jpg'
-        },
-        {
-            img1: 'https://reqres.in/img/faces/8-image.jpg',
-            img2: 'https://reqres.in/img/faces/8-image.jpg'
-        }
-
-    ]
+   
+    const [data,setData]=useState([]);
+    const getPosts = async () => {
+      try {
+        let res = await axios.get("http://localhost:3387/api/get_all_images");
+        let dataa = res.data;
+        setData(dataa);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+  
+  
+    useEffect(() => {
+      getPosts();
+    }, []);  // 
     return (
-        <div className='bg-[#D6EFD8] p-3 m-3'>
-            <div className='capitalize text-4xl text-center m-5 home_heading '>
+<div className='w-full h-full flex-col bg-slate-100 flex items-center justify-center py-2 overflow-hidden
+    relative'>
+         <div className='capitalize text-4xl text-center m-5 home_heading '>
                 <p>our image gallery</p>
             </div>
-        <div className="App gallery">
-            <LightGallery
-                onInit={onInit}
-                speed={500}
-                plugins={[lgThumbnail, lgZoom,lgFullscreen,lgRotate]}
-            >
-{/*             
+         <div className="rounded sm:columns-2 md:columns-3 xl:columns-4 gap-1 w-11/12 box-border gallery">
+        {/* Rendering Image component for every image url in our api*/}
+   {data.map((v,i)=>{
+    return(
+        <div className='rounded-lg p-1'>
+            <Link to={`/View_galleryImage/${v._id}`}>
+            <img src={`http://localhost:3387/${v.image}`} alt={i+1} className='rounded-lg' />
+            </Link>
+        </div>
+    )
+   })}
+      </div>
+    
+</div>
+
+
+//         <div className='bg-[#D6EFD8] p-3 m-3'>
+           
+//         <div className="App gallery">
+//             <LightGallery
+//                 onInit={onInit}
+//                 speed={500}
+//                 plugins={[lgThumbnail, lgZoom,lgFullscreen,lgRotate]}
+//             >
+
+
+// {data.map((v,index)=>{
+//     return(
+//         <div>
+//          <img src={v.src} alt={index} />
+//         </div>
+//     )
+//    })}  
+//             </LightGallery>
+//         </div>
+//         </div>
+    )
+}
+
+
+{/* /*             
  <a href="./src/assets/photogallery/1.jpeg">
 <img alt="img1" src="./src/assets/photogallery/1.jpeg" />
 </a>
@@ -227,23 +258,5 @@ export function Image_gallery() {
 </a> 
 <a href="./src/assets/photogallery/22.jpeg">
 <img alt="img1" src="./src/assets/photogallery/54.jpeg" />
-</a>  */}
-
-{data.map((v,index)=>{
-    return(
-        <div>
-             <a  href={v.img1}  key={index}>
-        <img alt={v.index} src={v.img2} />
-    </a>
-        </div>
-    )
-   })}  
-            </LightGallery>
-        </div>
-        </div>
-    );
-}
-
-
-
+</a>  */} 
 
