@@ -15,6 +15,13 @@ export default function Update_activity() {
 let res =await axios.get(`http://localhost:3387/api/get_post/${id}`);
 let dataa=res.data;
 setdata(dataa);
+setupdatedata(
+  {
+    title:dataa.title,
+    image:null,
+description:dataa.description
+  }
+)
   }
   
   useEffect(()=>{
@@ -37,7 +44,7 @@ setdata(dataa);
     const formData = new FormData();
     formData.append('title', updatedata.title);
     formData.append('description', updatedata.description);
-    if (data.img) {
+    if (updatedata.img) {
       formData.append('image', updatedata.img);
     }
 
@@ -75,7 +82,7 @@ setdata(dataa);
         <input
           type='text'
           autoComplete='off'
-          placeholder={data.title}
+          value={updatedata.title}
           onChange={inputhandle}
           id='name'
           name='title'
@@ -88,7 +95,7 @@ setdata(dataa);
         </label>
         <input
           type='text'
-          placeholder={data.description}
+          value={updatedata.description}
           onChange={inputhandle}
           name='description'
           id='desc'
