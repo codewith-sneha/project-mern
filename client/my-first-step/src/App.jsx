@@ -7,7 +7,7 @@ import Curriculum from './pages/Curriculum';
 import Admission from './pages/Admission';
 import Notices from './pages/Notices';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import Login from './pages/Login';
+import Login from './pages/login';
 import View_activity from './admin-pages/View_activity';
 import Footer from './pages/Footer';
 // import Nav1 from './pages/Nav1';

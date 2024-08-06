@@ -1,11 +1,10 @@
-import React from 'react';
-import './App.css'; 
-import signinImage from './components/signin.svg'
-import logo from './components/logo.jpg'; 
+import './Login.css'; 
+import signinImage from '../assets/signin.svg'
+import logo from '../assets/logo.jpeg'; 
 import { useState } from 'react';
 
 
-  const App = () => {
+  const Login = () => {
   
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -21,21 +20,18 @@ import { useState } from 'react';
   
     const handleSubmit = (e) => {
       e.preventDefault();
- 
-      console.log('Username:', username);
-      console.log('Password:', password);
-      
     };return (
       <>
         <div className='img'>
           <img src={logo} alt="Logo" />
-          {/* <p>MY FIRST STEP</p> */}
         </div>
         
         <div className="container">
+        <h2 className="heading">LOGIN</h2>
           <div className="signin-signup">
+
             <form className="signin" method="post" onSubmit={handleSubmit}>
-              <h2 className="heading">LOGIN</h2>
+              
               <div className="input-field">
                 <i className="fas fa-user"></i>
                 <input 
@@ -56,15 +52,12 @@ import { useState } from 'react';
                   onChange={handlePasswordChange} 
                 />
               </div>
-              <button type="submit">Login</button>
+              <button type="submit" className='btn'>Login</button>
             </form>
           </div>
   
           <div className="photo-container">
             <div className="photos left-photos">
-              <div className="content">
-                <h2>This is the Sign in form for you...</h2>
-              </div>s
               <img src={signinImage} alt="Sign in" className="image" />
             </div>
           </div>
@@ -73,4 +66,4 @@ import { useState } from 'react';
     );
   };
   
-  export default App;
+  export default Login;

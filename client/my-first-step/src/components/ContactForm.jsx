@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './Contact.css';
+import './ContactForm.css';
+import { useState } from 'react';
 
-const Contact = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -25,8 +25,6 @@ console.log('Form data submitted:', formData);
   };
 
   return (
-    <div className="contact-container">
-      <p className='heading'>Contact Us</p>
       <div className="container">
         <div className='first-row'>
           <div className='first'>
@@ -65,14 +63,12 @@ console.log('Form data submitted:', formData);
               <button type="submit">Send Message</button>
             </form>
           </div>
-          
-          <div className="contact-details">
+        <div className="contact-details">
             <p><strong>Address:</strong> C - Block, Vivek Vihar, New Delhi – 110 095</p>
             <p><strong>Phone:</strong> 011-43072200</p>
             <p><strong>Email:</strong> <a href="mailto:arwachinschool@gmail.com">arwachinschool@gmail.com</a></p>
           </div>
         </div>
-
         <div className="map-container">
           <iframe
             title="Google Maps"
@@ -87,11 +83,10 @@ console.log('Form data submitted:', formData);
           ></iframe>
         </div>
       </div>
-    </div>
   );
 };
 
-export default Contact;
+export default ContactForm;
 
 // import React from 'react';
 // import './Contact.css';

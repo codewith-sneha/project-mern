@@ -39,7 +39,8 @@ background-color: #ffffff;
 .contact-form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 40%;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 
