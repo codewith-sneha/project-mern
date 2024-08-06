@@ -2,18 +2,19 @@ const express = require("express");
 const Notice = require('../config/Notice');
 const app = express();
 const upload = require("../multerConfig");
+const deleteFile = require("./deleteFile");
 
 app.use('/uploads', express.static('/uploads'));
 
 
 //create a new notice
-app.post("/add_notice", upload.array("attatchments", 10), async (req, res) => {
+app.post("/add_notice", upload.single("attachment"), async (req, res) => {
   try {
-    const filepaths = req.files.map((file) => file.path);
+    const filepaths = req.file ? `uploads/${req.file.filename}` : null;
 
     let notice = new Notice({
       description: req.body.description,
-      attatchments: filepaths,
+      attachment: filepaths,
       date: req.body.date,
     });
 
@@ -32,15 +33,30 @@ app.post("/add_notice", upload.array("attatchments", 10), async (req, res) => {
 });
 
 //update a notice by Id
-app.put("/update_notice/:id",upload.array("attachments", 10), async (req, res) => {
+app.put("/update_notice/:id",upload.single("attachment"), async (req, res) => {
     try {
-      const filepaths = req.files.map((file) => file.path);
+      const filepath = req.file ? `uploads/${req.file.filename}` : null;
+      const notice1 = await Notice.findById(req.params.id);
+      try{
+        const notice1 = await Notice.findById(req.params.id);
+        prevPath = notice1.attachment;
+        if(prevPath){
+          deleteFile(prevPath);
+        }
+      }
+      catch(err){
+        res.status(400).json({
+          message: "Error updating Notice",
+          err,
+        });
+      }
+
 
       const notice = await Notice.findByIdAndUpdate(
         req.params.id,
         {
           description: req.body.description,
-          attatchments: filepaths,
+          attachment: filepath,
           date: req.body.date,
         },
         { new: true }

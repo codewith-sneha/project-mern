@@ -5,9 +5,8 @@ const NoticeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    attatchments: [{
-        type: String
-    }],
+    attachment:{
+        type: String},
     date: {
         type: Date,
         default: Date.now

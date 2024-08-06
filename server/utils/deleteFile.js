@@ -3,7 +3,6 @@ const path = require('path');
 
 const deleteFile = (filePath) => {
     if (filePath) {
-        // Adjust the path to point to the 'uploads' folder in the project root directory
         const fullPath = path.join(__dirname, '../../uploads', path.basename(filePath));
         fs.unlink(fullPath, (err) => {
             if (err) {

@@ -48,7 +48,7 @@ const formData=new FormData();
     formData.append('email', updateData.email);
     formData.append('dob', updateData.dob);
     formData.append('password', updateData.password);
-    if (data.img) {
+    if (updateData.img) {
       formData.append('profile_image', updateData.img);
     }
 
