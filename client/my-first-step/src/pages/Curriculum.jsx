@@ -7,13 +7,7 @@ import { useState,useEffect } from 'react';
 import Slider from "react-slick";
 
 function Curriculum() {
-  // const activity=[
-  //   {name:"swimming",desc:"swimming is a fun, relaxing activity that fuels brain, health and built strong bodies.",img:"./src/assets/photogallery/A1.jpeg"},
-  //   {name:"colouring",desc:"Colouring is a great way to help children build fine motor skills and  hand strength. It builds concentration. ",img:"./src/assets/photogallery/A2.jpeg"},
-  //   {name:"festive celebration",desc:"A special event that's meant to be enjoyable and create happy feeling.",img:"./src/assets/photogallery/A3.jpeg"},
-  //   {name:"birthday celebration",desc:" birthdays are very memorable days in a person's life, the celebration and oganization of a happy birthday party are what makes it more fun.",img:"./src/assets/photogallery/A4.jpeg"},
-  //   {name:"dining",desc:" It is important to make children sit together and share the food with them. When we sit together and eat, everyone is equal.",img:"./src/assets/photogallery/A5.jpeg"},
-  // ]
+  
 
   const [activity, setActivity] = useState([]);
   const getPosts = async () => {
@@ -37,6 +31,9 @@ function Curriculum() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,             // Enable auto-swipe
+    autoplaySpeed: 2000,        // Speed of auto-swipe in milliseconds (2 seconds)
+    pauseOnHover: true,  
     responsive: [
       {
         breakpoint: 1024,

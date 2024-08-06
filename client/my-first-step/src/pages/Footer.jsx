@@ -2,6 +2,7 @@ import React from 'react'
 import './style.css';
 import { FaInstagram } from "react-icons/fa6";
 import { ImYoutube2 } from "react-icons/im";
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -22,12 +23,12 @@ function Footer() {
                       <ul class="hover:text-white text-black dark:text-gray-400 font-medium">
                          
                           <li>
-                              <a href="#" class="hover:text-white hover:underline text-3xl text-gray-800">
+                              <a href="https://www.instagram.com/my_first_step_playschool?igsh=ZXp1bm5na290MHhv"  target="_blank" class="hover:text-white hover:underline text-3xl text-gray-800">
                               <FaInstagram/>
                               </a>
                           </li>
                           <li>
-                              <a href="#" class="hover:underline hover:text-white text-6xl text-gray-800">
+                              <a href="https://youtube.com/@firststepfirststep-so9wf?si=-5RjZYUYpNjBbvvI" class="hover:underline hover:text-white text-6xl text-gray-800" target="_blank">
                               <ImYoutube2/>
                               </a>
                           </li>
@@ -37,10 +38,11 @@ function Footer() {
                       <h2 class="footer-links mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                       <ul class="text-gray-500 dark:text-gray-400 font-medium">
                           <li class="mb-4">
-                              <a href="#" class="hover:underline text-gray-800">Privacy Policy</a>
+                              <Link to={'/Privacy_policy'} className="hover:underline text-gray-800">Privacy Policy</Link>
                           </li>
                           <li>
-                              <a href="#" class="hover:underline text-gray-800">Terms &amp; Conditions</a>
+                          <Link to={'/TermsAndCondition'} className="hover:underline text-gray-800">Terms &amp; Conditions</Link>
+                              
                           </li>
                       </ul>
                   </div>
