@@ -2,6 +2,7 @@ const express = require('express');
 const Post = require('../config/Post');
 const app = express();
 const upload = require('../multerConfig');
+const deleteFile = require('./deleteFile');
 
 //creating a new post
   app.post("/add_post", upload.single('image'), async (req, res) => {
@@ -47,38 +48,48 @@ const upload = require('../multerConfig');
   });
   //updating a post by Id
   app.put("/update_post/:id" , upload.single('image'), async (req, res) => {
-    const { title, description} = req.body;
+    const updateData = req.body;
+    const postId = req.params.id;
     const image = req.file ? `uploads/${req.file.filename}` : null;
     try {
-      const post = await Post.updateOne(
-        { _id: req.params.id },
-        { $set: {
-            "title" : title,
-            "description" : description,
-            "image" : image
-        }}
-      );
-      if (!post) {
+      const existingPost = await Post.findById(postId);
+      if (!existingPost) {
         return res.status(404).json({ message: "Post not found" });
-      } else {
-        res.status(200).json();
+      } 
+      if(req.file){
+        if(existingPost.image){
+          deleteFile(existingPost.image);
+        }
+        updateData.image = `uploads/${req.file.filename}`;
       }
+      const updatedPost = await Post.findByIdAndUpdate(postId, updateData, {new: true});
+      res.status(200).json({
+        message: 'Post Updated Soccessfully',
+        post: updatedPost
+      });
     } catch (err) {
-      res.status(400).json({ message: err.message });
+      res.status(500).json({ message: 'Error Updating Post' , err });
     }
   });
   
   //Deleting a post by Id
   app.delete("/delete_post/:id", async (req, res) => {
     try {
-      const post = await Post.deleteOne({_id : req.params.id});
+      const postId = req.params.id;
+      const post = await Post.findById({_id: postId});
       if (!post) {
         return res.status(404).json({ message: "Post not found" });
-      } else {
-        res.status(200).json({ message: "Post Deleted" });
+      } 
+      const imagePath = post.image;
+      await Post.findByIdAndDelete(postId);
+
+      if(imagePath){
+        deleteFile(imagePath);
       }
+
+      res.status(204).send();
     } catch (err) {
-      res.status(400).json({ message: err.message });
+      res.status(500).json({ message: err.message });
     }
   });
   

@@ -2,6 +2,7 @@ const express = require("express");
 const Image = require('../config/Image_Gallery');
 const app = express();
 const upload = require('../multerConfig');
+const deleteFile = require('./deleteFile');
 
 app.use('/uploads', express.static('uploads'));
 
@@ -25,18 +26,19 @@ app.post('/add_image', upload.single('image'),async(req,res)=>{
 //Delete an image by Id 
 app.delete('/delete_image/:id' , async(req,res)=>{
     try{
-        const image = await Image.findByIdAndDelete(req.params.id);
+        const ImageId = req.params.id;
+        const image = await Image.findById(ImageId);
         if(!image) {
             return res.status(404).json({message: 'Image not found'});
     }
-    else{
-        res.status(200).json({
-            id: req.params.id,
-            message: 'Image deleted successfully'
-        });
+    const imagePath = image.image;
+    await Image.findByIdAndDelete(ImageId);
+    if(imagePath){
+        deleteFile(imagePath);
     }
+    res.status(204).send();
     } catch(err){
-        res.status(400).json({
+        res.status(500).json({
             message: err.message
         })
     }
@@ -53,7 +55,7 @@ app.get('/get_image/:id', async(req,res)=>{
             res.status(200).json(image)
         }
     } catch(err){
-        res.status(400).json({
+        res.status(500).json({
             message: err.message
         });
     }

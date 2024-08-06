@@ -50,8 +50,6 @@ app.put("/update_notice/:id",upload.single("attachment"), async (req, res) => {
           err,
         });
       }
-
-
       const notice = await Notice.findByIdAndUpdate(
         req.params.id,
         {
@@ -81,14 +79,21 @@ app.put("/update_notice/:id",upload.single("attachment"), async (req, res) => {
 //Deleting a notice by Id
 app.delete("/delete_notice/:id", async (req, res) => {
   try {
-    const notice = await Notice.findByIdAndDelete(req.params.id);
+    const noticeId = req.params.id;
+    const notice = await Notice.findById({_id: noticeId});
     if (!notice) {
       return req.status(404).json({
         message: "The notice with the given id was not found",
       });
-    } else {
-      res.status(200).json({ message: "Post Deleted" });
     }
+    const noticePath = notice.attachment;
+    await Notice.findByIdAndDelete(noticeId); 
+
+    if(noticePath){
+      deleteFile(noticePath);
+    }
+
+    res.status(204).send();
   } catch (err) {
     res.status(400).json({
       message: err.message,
