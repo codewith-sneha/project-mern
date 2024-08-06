@@ -38,7 +38,7 @@ const handleDelete=async(id)=>{
       <div className='flex flex-col items-center'>
         <Link to={'/Add_review'} className='p-3 mt-2 bg-green-600 text-black min-w-[70px] text-center rounded-md'>Add element <i className="fa-solid fa-plus"></i></Link>
         <div className="w-full overflow-x-auto">
-          <table className='w-full md:w-[60vw] m-auto table-auto border-collapse border border-gray-300 table-view p-2 my-3 bg-gray-100'>
+          <table className='w-full md:w-[60vw] min-h-[200px] m-auto table-auto border-collapse border border-gray-300 table-view p-2 my-3 bg-gray-100'>
             <thead>
               <tr className='p-2 border-b border-gray-300 bg-gray-400'>
                 <th className='border capitalize p-2 border-gray-300'>s.no</th>
@@ -56,7 +56,7 @@ const handleDelete=async(id)=>{
                   <td className='border border-gray-300 p-2'><img src={`http://localhost:3387/${v.image}`} alt={i} className='h-[100px] w-full object-cover' /></td>
                   <td className='border border-gray-300 p-2'>{v.description}</td>
                   <td className='border flex flex-col sm:flex-row gap-2 justify-center items-center border-gray-300 p-2'>
-                    <Link to={`/Edit_review/${v._id}`} className='btn-view bg-yellow-200 p-2 rounded-lg text-black text-center'>Update</Link>
+                    <Link to={`/Edit_review/${v._id}`} className='btn-view bg-yellow-200 p-2 rounded-lg text-black text-center'> <i className="fa-regular fa-pen-to-square"></i></Link>
                     <button className='btn-view bg-red-600 p-2 rounded-lg text-black text-center'><i className="fa-solid fa-trash" onClick={()=> handleDelete(v._id)}></i></button>
                   </td>
                 </tr>
